@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
+
+//overwrite bootstrap vars
+
+//define new base font
+$font-family-base: 'Nunito', sans-serif;
+
+// scss-docs-start theme-color-variables
+$primary:       #000 !default;
+$secondary:     #00fff7 !default;
+$crimson:     #EB1F48;
+// scss-docs-end theme-color-variables
+
+// scss-docs-start theme-colors-map
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "crimson":    $crimson
+) !default;
+// scss-docs-end theme-colors-map
+
+
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
+//custom classes
+
+.reading-text{
+    font-size: 14px;
+    font-weight: 300;
+    color: $primary;
+}
+
+.zoom-box{
+   box-shadow: 0 12px 15px rgba($primary, .25);
+   transition: .3s ease-in;   
+}
+
+// Extends
+
+
+
+.card{
+    background-color: rgba(255,255,255,.8);
+    @extend .zoom-box;
+
+    &:hover{
+      transform: scale(1.05);
+    }
+
+    p{
+      @extend .reading-text;
+    }
+}
